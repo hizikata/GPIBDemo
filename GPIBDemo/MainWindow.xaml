@@ -3,10 +3,89 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GPIBDemo"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        xmlns:local="clr-namespace:GPIBDemo" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Loaded="Window_Loaded" Background="Gray" 
+        Title="GPIBDemo" Height="618.104" Width="763.792">
+    <StackPanel>
+        <GroupBox Margin="10" Header="设备初始化">
+            <StackPanel>
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <TextBlock Text="端口:" Padding="5,10"/>
+                    <ComboBox Name="cmbBoardAddress"/>
+                    <ComboBox Name="cmbPriamryAddress"/>
+                    <Button Name="btnOpen" Content="初始化" Click="btnOpen_Click"/>
+                    <Button Name="btnClosed" Content="关闭" Click="btnClosed_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="IDN:" Padding="5,10"/>
+                    <TextBox Name="tbIDN"  Width="600"/>
+                </StackPanel>
+            </StackPanel>
+
+
+        </GroupBox>
+        <GroupBox Header="通用操作" Margin="10">
+            <StackPanel>
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <TextBox VerticalAlignment="Center" MaxWidth="300" Name="tbCommand"/>
+                    <Button Name="btnSend" Content="Send command" Click="btnSend_Click"/>
+                    <Button Name="btnRead" Content="Read command" Click="btnRead_Click"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="结果显示"/>
+                    <TextBox Name="tbReadArea" Margin="5" Width="500" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Margin="10" Header="频谱分析仪(AQ6317B)">
+            <StackPanel Margin="5">
+                <StackPanel  Orientation="Horizontal" Margin="3">
+                    <TextBlock Text="光谱类型:" Padding="0,8"/>
+                    <ComboBox Name="cmbMode"/>
+                </StackPanel>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="280" MinWidth="240"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3">
+                                <TextBlock Text="中心波长/nm:"/>
+                                <TextBox Name="tbCenterLength"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3">
+                                <TextBlock Text="扫描范围/nm:"/>
+                                <TextBox Name="tbSpan"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3">
+                                <TextBlock Text="Scale/dB:" Width="75"/>
+                                <TextBox Name="tbScale"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal" Margin="3">
+                                <TextBlock Text="Res:" Width="53" TextAlignment="Center"/>
+                                <TextBox  Name="tbRes"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3">
+                                <TextBlock Text="Reflevel:"/>
+                                <TextBox Name="tbRefLevel" Margin="10,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Button Name="btnSet" Content="设置" HorizontalAlignment="Left" Margin="20,5"
+                        Click="btnSet_Click"/>
+                <StackPanel Margin="5">
+                    <TextBlock Text="扫描结果" Margin="5"/>
+                    <TextBox Margin="5" MinHeight="40"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
 </Window>

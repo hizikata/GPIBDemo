@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:GPIBDemo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionary/Share.xaml"/>
+                <ResourceDictionary Source="/Dictionary/Template.xaml"/>
+                <ResourceDictionary Source="/Dictionary/Style.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
